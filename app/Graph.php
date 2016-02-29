@@ -8,6 +8,9 @@ use App\Status;
 
 class Graph
 {
+
+	public $statuses;
+
     public function __construct(array $attributes = [])
     {
 

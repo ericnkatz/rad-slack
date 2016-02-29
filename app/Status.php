@@ -59,12 +59,11 @@ class Status
             $client = new Client();
             $record = Cache::rememberForever($this->permalink, function() use ( $client )  {
                 
-                // Some Fun Stuff
-                $colors = ['#00AAFF', '#FFBB00', '#CCBFF0', '#999999', '#444444'];
+                // Random Colors for SlackAttachment
+                $colors = ['#00AAFF', '#8EE5CF', '#9ECC90', '#9AD6B6', '#B4EDE0', '#B6D8B1'];
                 shuffle($colors);
 
-                // End Some Fun Stuff
-
+                // Additional Fields
                 $fields = [
                     [
                         'title' => 'Posted By',
@@ -87,7 +86,7 @@ class Status
                         // 'text' => 'New Post to Facebook Group',
                         'attachments' => [
                             [
-                                'title' => '<' . $this->permalink . '|Facebook Posted> on ' . $this->updated_time->setTimezone('America/New_York')->format('l - F jS, Y \\a\\t g:i:s a'),
+                                'title' => '<' . $this->permalink . '|Facebook Post to Group> on ' . $this->updated_time->setTimezone('America/New_York')->format('l - F jS, Y \\a\\t g:i:s a'),
                                 'text' => $this->post . "\n\n",
                                 'color' => $colors[0],
                                 'thumb_url' => $this->attachment,

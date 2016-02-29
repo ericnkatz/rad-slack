@@ -24,6 +24,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->call(function () {
+            $graph = new \App\Graph(['fields' => ['message', 'link', 'updated_time', 'id', 'caption', 'attachments', 'from', 'child_attachments', 'likes{name,link}']]);
+
+            $statuses = $graph->statuses;
+
+            $statuses->reverse()->each( function($status) {
+                $status->sendToSlack();
+            });
+
+        })->everyMinute();
     }
 }

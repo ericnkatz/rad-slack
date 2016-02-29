@@ -60,7 +60,7 @@ class Status
             $record = Cache::rememberForever($this->permalink, function() use ( $client )  {
                 
                 // Random Colors for SlackAttachment
-                $colors = ['#00AAFF', '#8EE5CF', '#9ECC90', '#9AD6B6', '#B4EDE0', '#B6D8B1'];
+                $colors = ['#8EE5CF', '#9ECC90', '#9AD6B6', '#B4EDE0', '#B6D8B1'];
                 shuffle($colors);
 
                 // Additional Fields

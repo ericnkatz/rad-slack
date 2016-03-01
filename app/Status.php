@@ -33,7 +33,7 @@ class Status
 
                 $attachment = $wall_post['attachments']['data'][0]['media']['image']['src'] ?? false;
 
-                if($attachment) {
+                if($attachment && strpos($attachment, 'safe_image.php')) {
                     $url_query = parse_url($attachment, PHP_URL_QUERY);
                     parse_str($url_query, $query);
                     $attachment = $query['url'];

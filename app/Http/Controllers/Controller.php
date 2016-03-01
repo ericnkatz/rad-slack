@@ -18,9 +18,9 @@ class Controller extends BaseController
 
 		$statuses = $graph->statuses;
 
-		$statuses->reverse()->each( function($status) {
-			$status->sendToSlack();
-		});
+		// $statuses->reverse()->each( function($status) {
+		// 	$status->sendToSlack();
+		// });
 
 	    return $statuses;
     }

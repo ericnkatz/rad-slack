@@ -29,7 +29,7 @@ class Graph
 		]]);
 
 		$fb_feed = json_decode($res->getBody(), true);
-
+        
 		return new Collection( $fb_feed['data'] );
     }
 
